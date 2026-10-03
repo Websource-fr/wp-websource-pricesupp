@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name:       WebsourcePriceSupp
- * Plugin URI:        https://www.websource.fr/
+ * Plugin URI:        https://www.websource.fr/modules-wordpress/module-arrondi-panier-woocommerce
  * Description:       Arrondit le total du panier WooCommerce à l'unité configurée et affiche l'ajustement en toute transparence dans le panier, le tunnel de commande et la commande.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Requires at least: 6.0
  * Requires PHP:      8.1
  * Author:            Websource
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WPS_VERSION', '1.0.0' );
+define( 'WPS_VERSION', '1.1.0' );
 define( 'WPS_PLUGIN_FILE', __FILE__ );
 define( 'WPS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WPS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -59,6 +59,8 @@ function wps_init_plugin(): void {
 	if ( is_admin() ) {
 		require_once WPS_PLUGIN_DIR . 'admin/class-wps-admin.php';
 		WPS_Admin::init();
+		require_once WPS_PLUGIN_DIR . 'admin/class-wps-support-box.php';
+		WPS_Support_Box::init();
 	}
 }
 add_action( 'plugins_loaded', 'wps_init_plugin', 20 );

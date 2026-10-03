@@ -58,4 +58,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</table>
 		<?php submit_button(); ?>
 	</form>
+
+	<?php WPS_Support_Box::render(); ?>
 </div>
